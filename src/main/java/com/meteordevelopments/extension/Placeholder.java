@@ -4,6 +4,7 @@ import com.meteordevelopments.duels.api.arena.ArenaManager;
 import com.meteordevelopments.duels.api.extension.DuelsExtension;
 import com.meteordevelopments.duels.api.kit.Kit;
 import com.meteordevelopments.duels.api.kit.KitManager;
+import com.meteordevelopments.duels.api.queue.DQueueManager;
 import com.meteordevelopments.duels.api.spectate.SpectateManager;
 import com.meteordevelopments.duels.api.user.UserManager;
 import com.meteordevelopments.extension.hooks.PlaceholderHook;
@@ -38,6 +39,8 @@ public final class Placeholder extends DuelsExtension {
     private ArenaManager arenaManager;
     @Getter
     private SpectateManager spectateManager;
+    @Getter
+    private DQueueManager queueManager;
 
     private final List<Updatable<Kit>> updatables = new ArrayList<>();
 
@@ -55,6 +58,7 @@ public final class Placeholder extends DuelsExtension {
         this.kitManager = api.getKitManager();
         this.arenaManager = api.getArenaManager();
         this.spectateManager = api.getSpectateManager();
+        this.queueManager = api.getQueueManager();
 
         new PlaceholderHook().register();
     }

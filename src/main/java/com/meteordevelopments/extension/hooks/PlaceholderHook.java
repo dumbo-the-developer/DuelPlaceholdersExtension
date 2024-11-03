@@ -44,6 +44,52 @@ public class PlaceholderHook extends PlaceholderExpansion {
         }
 
         User user;
+        switch (identifier) {
+            case "wins":
+                user = ext.getUserManager().get(player);
+
+                if (user == null) {
+                    return StringUtil.color(ext.getUserNotFound());
+                }
+                return String.valueOf(user.getWins());
+            case "losses":
+                user = ext.getUserManager().get(player);
+                if (user == null) {
+                    return StringUtil.color(ext.getUserNotFound());
+                }
+                return String.valueOf(user.getLosses());
+            case "can_request":
+                user = ext.getUserManager().get(player);
+                if (user == null) {
+                    return StringUtil.color(ext.getUserNotFound());
+                }
+                return String.valueOf(user.canRequest());
+            case "hits": {
+                Arena arena = ext.getArenaManager().get(player);
+                // Only activate when winner is undeclared
+                if (arena == null) {
+                    return "-1";
+                }
+                return String.valueOf(arena.getMatch().getHits(player));
+            }
+            case "hits_opponent": {
+                Arena arena = ext.getArenaManager().get(player);
+                // Only activate when winner is undeclared
+                if (arena == null) {
+                    return "-1";
+                }
+                return String.valueOf(arena.getMatch().getHits(arena.getOpponent(player)));
+            }
+            case "wl_ratio":
+            case "wlr":
+                user = ext.getUserManager().get(player);
+                if (user == null) {
+                    return StringUtil.color(ext.getUserNotFound());
+                }
+                int wins = user.getWins();
+                int losses = user.getLosses();
+                return String.valueOf(wlr(wins, losses));
+        }
 
         if (identifier.startsWith("rating_")) {
             user = ext.getUserManager().get(player);
@@ -60,6 +106,37 @@ public class PlaceholderHook extends PlaceholderExpansion {
 
             final Kit kit = ext.getKitManager().get(identifier);
             return kit != null ? String.valueOf(user.getRating(kit)) : StringUtil.color(ext.getNoKit());
+        }
+
+        if (identifier.startsWith("getplayersinqueue_")){
+            user = ext.getUserManager().get(player);
+            if (user == null) {
+                return StringUtil.color(ext.getUserNotFound());
+            }
+
+            identifier = identifier.replace("getplayersinqueue_", "");
+
+            final Kit kit = ext.getKitManager().get(identifier);
+            if (kit == null) {
+                return StringUtil.color(ext.getNoKit());
+            }
+
+            int queuedPlayers = ext.getQueueManager().get(kit, 0).getQueuedPlayers().size();
+            return queuedPlayers > 0 ? String.valueOf(queuedPlayers) : "0";
+        }
+
+        if (identifier.startsWith("getplayersplayinginqueue_")){
+            user = ext.getUserManager().get(player);
+            if (user == null) {
+                return StringUtil.color(ext.getUserNotFound());
+            }
+            identifier = identifier.replace("getplayersplayinginqueue_", "");
+            final Kit kit = ext.getKitManager().get(identifier);
+            if (kit == null) {
+                return StringUtil.color(ext.getNoKit());
+            }
+            long playersInMatch = ext.getQueueManager().get(kit, 0).getPlayersInMatch();
+            return Long.toString(playersInMatch);
         }
 
         if (identifier.startsWith("match_")) {
@@ -149,5 +226,15 @@ public class PlaceholderHook extends PlaceholderExpansion {
             }
         }
         return null;
+    }
+
+    private float wlr(int wins, int losses) {
+        if (wins == 0) {
+            return losses == 0 ? 0.0F : (float)(-losses);
+        } else if (losses == 0) {
+            return (float)wins;
+        } else {
+            return (float)(wins / losses);
+        }
     }
 }

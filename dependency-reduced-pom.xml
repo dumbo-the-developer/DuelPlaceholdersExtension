@@ -70,12 +70,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.github.dumbo-the-developer.Duels</groupId>
-      <artifactId>duels-api</artifactId>
-      <version>1.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.30</version>
@@ -86,6 +80,19 @@
       <artifactId>placeholderapi</artifactId>
       <version>2.11.6</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.dumbo-the-developer.Duels</groupId>
+      <artifactId>duels-api</artifactId>
+      <version>1.7</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/libs/Duels-Optimised-1.7.jar</systemPath>
     </dependency>
   </dependencies>
   <properties>
