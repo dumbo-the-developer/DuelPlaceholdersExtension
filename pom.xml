@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.meteordevelopments</groupId>
-    <artifactId>DuelPlaceholders</artifactId>
+    <artifactId>DuelsPlaceholders</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>DuelPlaceholders</name>
+    <name>DuelsPlaceholders</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -101,7 +101,6 @@
             <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
@@ -111,9 +110,8 @@
         <dependency>
             <groupId>com.github.dumbo-the-developer.Duels</groupId>
             <artifactId>duels-api</artifactId>
-            <version>1.7</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/libs/Duels-Optimised-1.7.jar</systemPath>
+            <version>2.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

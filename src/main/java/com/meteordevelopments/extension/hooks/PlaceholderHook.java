@@ -64,22 +64,22 @@ public class PlaceholderHook extends PlaceholderExpansion {
                     return StringUtil.color(ext.getUserNotFound());
                 }
                 return String.valueOf(user.canRequest());
-            case "hits": {
-                Arena arena = ext.getArenaManager().get(player);
-                // Only activate when winner is undeclared
-                if (arena == null) {
-                    return "-1";
-                }
-                return String.valueOf(arena.getMatch().getHits(player));
-            }
-            case "hits_opponent": {
-                Arena arena = ext.getArenaManager().get(player);
-                // Only activate when winner is undeclared
-                if (arena == null) {
-                    return "-1";
-                }
-                return String.valueOf(arena.getMatch().getHits(arena.getOpponent(player)));
-            }
+            //case "hits": {
+            //    Arena arena = ext.getArenaManager().get(player);
+            //    // Only activate when winner is undeclared
+            //    if (arena == null) {
+            //        return "-1";
+            //    }
+            //    return String.valueOf(arena.getMatch().getHits(player));
+            //}
+            //case "hits_opponent": {
+            //    Arena arena = ext.getArenaManager().get(player);
+            //    // Only activate when winner is undeclared
+            //    if (arena == null) {
+            //        return "-1";
+            //    }
+            //    return String.valueOf(arena.getMatch().getHits(arena.getOpponent(player)));
+            //}
             case "wl_ratio":
             case "wlr":
                 user = ext.getUserManager().get(player);

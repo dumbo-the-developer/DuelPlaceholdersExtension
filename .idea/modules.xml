@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DuelPlaceholders.iml" filepath="$PROJECT_DIR$/DuelPlaceholders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DuelsLeaderboard.iml" filepath="$PROJECT_DIR$/DuelsLeaderboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DuelsPlaceholders.iml" filepath="$PROJECT_DIR$/DuelsPlaceholders.iml" />
     </modules>
   </component>
 </project>

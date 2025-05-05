@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.meteordevelopments</groupId>
-  <artifactId>DuelPlaceholders</artifactId>
-  <name>DuelPlaceholders</name>
+  <artifactId>DuelsPlaceholders</artifactId>
+  <name>DuelsPlaceholders</name>
   <version>1.0</version>
   <build>
     <defaultGoal>clean package</defaultGoal>
@@ -90,9 +90,8 @@
     <dependency>
       <groupId>com.github.dumbo-the-developer.Duels</groupId>
       <artifactId>duels-api</artifactId>
-      <version>1.7</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/libs/Duels-Optimised-1.7.jar</systemPath>
+      <version>2.8</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <properties>

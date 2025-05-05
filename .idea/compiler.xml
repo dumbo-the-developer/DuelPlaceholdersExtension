@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DuelPlaceholders" />
+        <module name="DuelsPlaceholders" />
+        <module name="DuelsLeaderboard" />
       </profile>
     </annotationProcessing>
   </component>
