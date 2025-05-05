@@ -1,5 +1,5 @@
 name: DuelPlaceholders
-version: 1.0
+version: 2.0
 main: com.meteordevelopments.extension.Placeholder
 authors: [ DUMBO ]
 description: Create automatically resetting arenas!
